@@ -30,8 +30,8 @@ app.get("/",(req, res) => {
  
 });
 //calling the router
-require("./app/routes/courRoutes")(app);
 require("./app/routes/roleRoutes")(app);
+require("./app/routes/courRoutes")(app);
 
 
 

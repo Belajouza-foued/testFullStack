@@ -3,13 +3,12 @@ module.exports = mongoose => {
         {
            name:{
            type:String,
-           require : true,
-                   
+           require : true,                   
            },
+          
         place:{
             type : String,
-            require : true,
-            unique : true,
+            require : true,           
         },         
      });
 schema.method("toJSON", function(){

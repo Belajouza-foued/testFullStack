@@ -7,4 +7,5 @@ db.url = dbConfig.url;
 db.roles = require ("./roles")(mongoose);
 db.cours = require ("./cours")(mongoose);
 
+
 module.exports = db;

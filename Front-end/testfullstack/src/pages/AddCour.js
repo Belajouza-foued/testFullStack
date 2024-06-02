@@ -4,8 +4,7 @@ export default class AddCour extends Component{
     constructor(props) {
         super(props);
         this.onChangeName = this.onChangeName.bind(this);
-        this.onChangePlace = this.onChangePlace.bind(this);            
-
+        this.onChangePlace = this.onChangePlace.bind(this);           
         this.saveNewCour = this.saveNewCour.bind(this);
         this.newCour = this.newCour.bind(this);
     
@@ -72,7 +71,7 @@ export default class AddCour extends Component{
             ) : (
               <div>
                 <div className="form-group">
-                  <label htmlFor="nom">nom</label>
+                  <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     className="form-control"
@@ -88,7 +87,7 @@ export default class AddCour extends Component{
                   <input
                     type="text"
                     className="form-control"
-                    id="name"
+                    id="place"
                     required
                     value={this.state.place}
                     onChange={this.onChangePlace}

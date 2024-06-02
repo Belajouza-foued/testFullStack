@@ -9,10 +9,8 @@ exports.create = (req, res) => {
     }
     // Create a Tutorial
     const cour = new Cour({  
-      name:req.body.name,        
-        place:req.body.place,
-           
-
+      name:req.body.name,  
+      place:req.body.place                 
     });
   
     // Save Tutorial in the database
@@ -44,11 +42,11 @@ exports.findAll = (req, res) => {
         const id = req.params.id;
         Cour.findById(id).then(data =>{
             if(!data) 
-              res.status(400).send({message:"cour trouvé"});
+              res.status(400).send({message:"formation trouvé"});
          res.send(data);
         })
         .catch(err =>{
-            res.status(500).send({message:"cour non trouveé avec id="+ id});
+            res.status(500).send({message:"formation non trouveé avec id="+ id});
         });        
     }
 //delete admine by id
@@ -66,7 +64,7 @@ Cour.findByIdAndDelete(id)
 })
 .catch(err => {
   res.status(500).send({
-    message:"error deleting cour with id=" + id
+    message:"error deleting admin with id=" + id
   });
 });
 }
@@ -80,7 +78,7 @@ res.send({
 })
 .catch(err =>{
   res.status(500).send({
-    message:err.message || "error deleting all cours"
+    message:err.message || "error deleting all cour"
   })
 } )
 }

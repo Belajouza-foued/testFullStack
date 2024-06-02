@@ -14,7 +14,7 @@ class RoleDataService {
   }
 
   findByTitle(name) {
-    return http.get(`/roles?name=${name}`);
+    return http.get(`/roles/?name=${name}`);
   }
   // service update admin
   update(id, data) {

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import   '../pages/styles/ListRoles.css';
 import { Component } from 'react';
-import RoleDataService from '../services/role.service';
+import RoleDataService from '../services/role.service.js';
 export default class ListRole extends Component{
   constructor (props) {
     super (props);
@@ -96,7 +96,7 @@ render () {
    <div className="row">
     <div className="col-3">
     < Link to={'/addRole'}className='btn btn-success btn-position me-4'>Add new role</Link>
-    < button className='btn btn-danger btn-position' onClick={this.deleteAllRole}>Delete all roles</button>
+    < button className='btn btn-danger btn-position' onClick={this.deleteAllRole}>Delete all role</button>
     </div>
     <div className='col-9'>
       
@@ -109,13 +109,7 @@ render () {
        <h1>Role list</h1>
                 
        <table className="table align-middle mb-0 bg-white">
-<thead className="bg-light">
- <tr>
-   
-   <th>Name</th>   
- 
- </tr>
-</thead>
+
 <tbody>
   {roles && roles.map((
     role, index)=>(    // eslint-disable-next-line no-unused-vars

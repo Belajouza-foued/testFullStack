@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
+import   '../pages/styles/ListCours.css';
 import { Component } from 'react';
 import CourDataService from '../services/cour.service';
-export default class ListCours extends Component{
+export default class ListCour extends Component{
   constructor (props) {
     super (props);
     //input search admin
@@ -28,7 +29,7 @@ this.state = {
 
   }
 componentDidMount(){
-    this.getcours();
+    this.getCours();
 }
   onchangeSearchName(e) {
     const searchName =e.target.value;
@@ -63,7 +64,7 @@ setActiveCour(cour , index) {
 });
 }
 searchByName(){
-CourDataService.findByTitle(this.state.searchName)
+    CourDataService.findByTitle(this.state.searchName)
     .then(response => {
         this.setState({
             cours: response.data
@@ -94,8 +95,8 @@ render () {
  <div className="container-fluid">
    <div className="row">
     <div className="col-3">
-    < Link to={'/addcour'}className='btn btn-success btn-position me-4'>Add new cour</Link>
-    < button className='btn btn-danger btn-position' onClick={this.deleteAllCour}>Delete all roles</button>
+    < Link to={'/addCour'}className='btn btn-success btn-position me-4'>Add new cour</Link>
+    < button className='btn btn-danger btn-position' onClick={this.deleteAllCour}>Delete all cours</button>
     </div>
     <div className='col-9'>
       
@@ -105,15 +106,15 @@ render () {
       </div>
     </div>
      <div className="col-12">
-       <h1>cour list</h1>
-                
+       <h1>Cour list</h1>                
        <table className="table align-middle mb-0 bg-white">
-<thead className="bg-light">
- <tr>
-   
-   <th>Name</th>   
- 
- </tr>
+       <thead className="bg-light">
+ <tr>   
+   <th>Name</th>
+   <th>place</th>  
+   <th>update</th>
+   <th>delete</th>
+  </tr>
 </thead>
 <tbody>
   {cours && cours.map((
@@ -124,12 +125,10 @@ render () {
    <td>
     <p>{cour.name}</p>
     </td>  
-    
     <td>
     <p>{cour.place}</p>
-    </td>  
-    
-    
+    </td>   
+       
 <td>
      <Link to={"/cour/"+ cour.id} type="button" className="btn btn-warning">
        Edit
